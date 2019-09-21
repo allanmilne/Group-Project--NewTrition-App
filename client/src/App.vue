@@ -8,7 +8,10 @@
 import CalorieCounter from './components/CalorieCounter';
 
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'calorie-counter': CalorieCounter
+  }
 }
 </script>
 
