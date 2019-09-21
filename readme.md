@@ -21,3 +21,12 @@ API_ID=
 To run the server, run the script below in your terminal whilst in the server directory:
 
 - run nodemon script: ```npm run server:dev```
+
+### In Client Directory
+Before the program will work you will need to install the following packages:
+
+- node modules: ```npm install```
+
+To run the client, run the script below in your terminal whilst in the client directory:
+
+- ```npm run serve```
