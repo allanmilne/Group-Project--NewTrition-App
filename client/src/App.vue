@@ -6,6 +6,7 @@
 
 <script>
 import CalorieCounter from './components/CalorieCounter';
+import { eventBus } from './main';
 
 export default {
   name: 'app',
