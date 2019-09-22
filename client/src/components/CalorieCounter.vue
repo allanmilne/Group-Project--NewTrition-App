@@ -35,7 +35,7 @@
         <button id="submit">Submit</button>
         <p>
           <label for="total">Your recommended calorie intake per day to maintain your current weight is:  </label>
-          <p id="total" name="result">{{ calsPerDay() }}</p>
+          <p id="total" name="result">{{  }}</p>
         </p>
       </form>
     </div>
@@ -63,9 +63,9 @@ export default {
     },
         calsPerDay() {
             let result = 0;
-            if (this.gender == "male") {
+            if (this.gender === "male") {
               result = (88.362 + (13.39 * this.weight) + (4.799 * this.height) - (5.677 * this.age)) * this.activityLevel;
-            } else if (this.gender == "female") {
+            } else if (this.gender === "female") {
               result = (447.593 + (9.247 * this.weight) + (3.098 * this.height) - (4.330 * this.age)) * this.activityLevel;
             }
               return result
