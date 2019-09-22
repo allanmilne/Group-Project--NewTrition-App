@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="app">
-    <calorie-counter/>
+    <!-- <calorie-counter/> -->
   </div>
 </template>
 

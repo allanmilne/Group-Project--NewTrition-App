@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div id="calorie-counter-form">
       <form id="calorie-form" v-on:submit="handleSubmit">
         <h2>Caluculate your daily recommended calorie intake: </h2>
@@ -83,5 +83,6 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style scoped>
+
 </style>
