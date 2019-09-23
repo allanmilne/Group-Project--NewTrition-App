@@ -21,13 +21,8 @@ console.log(apiKey);
 
 fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
   headers: {
-<<<<<<< HEAD
     'x-app-key': apiKey,
     'x-app-id': apiID
-=======
-    'x-app-key': '',
-    'x-app-id': ''
->>>>>>> develop
   }
 })
 .then(response => response.json())
