@@ -1,27 +1,28 @@
-<template>
+<template lang="html">
   <div id="app">
-    <Nutrition msg="Nutrition App"/>
+    <nutrition-home/>
+    <calorie-counter/>
+    <breakdown-chart/>
   </div>
 </template>
 
 <script>
 import Nutrition from './components/NutritionApp.vue'
+import CalorieCounter from './components/CalorieCounter';
+import { eventBus } from './main';
+import BreakdownChart from './components/BreakdownChart.vue'
 
 export default {
   name: 'app',
   components: {
-    Nutrition
-  }
+    Nutrition,
+    'calorie-counter': CalorieCounter,
+    'breakdown-chart': BreakdownChart,
+    'nutrition-home': NutritionApp
+  },
+  props: [""]
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="css" scoped>
 </style>
