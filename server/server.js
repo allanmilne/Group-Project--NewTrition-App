@@ -5,20 +5,24 @@ const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 
 const app = express();
+dotenv.config();
+  
+
 const apiKey = process.env.API_KEY;
 const apiID = process.env.API_ID;
 
 let storedData = null
 let query = 'cheese'
 
-dotenv.config();
 app.use(cors());
 app.use(parser.json());
 
+console.log(apiKey);
+
 fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
   headers: {
-    'x-app-key': '296d00040a45afe09196876a88891206',
-    'x-app-id': 'f7691887'
+    'x-app-key': apiKey,
+    'x-app-id': apiID
   }
 })
 .then(response => response.json())
