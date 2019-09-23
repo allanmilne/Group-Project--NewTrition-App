@@ -4,6 +4,7 @@
       <h1>Nutrition App</h1>
       <p>Find out how good your food is!</p>
       <h3>Search form goes here</h3>
+      <p id="empty-space">(empty space)</p>
       <vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false" @on-close="onClose" @on-before="onBefore" @on-after="onAfter">
   		<div class="section" id="tab1-nutrition-search">
   			<h3 class="title">Tab 1: Nutrition Information</h3>
@@ -99,5 +100,10 @@ a {
 	background: #f1f1f1;
 	color: #333;
 	text-shadow: none;
+}
+
+#empty-space {
+  font-size: 0.8em;
+  color: gray;
 }
 </style>
