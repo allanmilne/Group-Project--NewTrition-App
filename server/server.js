@@ -9,21 +9,25 @@ const apiKey = process.env.API_KEY;
 const apiID = process.env.API_ID;
 
 let storedData = null
+let query = 'cheese'
 
 dotenv.config();
 app.use(cors());
 app.use(parser.json());
 
-fetch('https://trackapi.nutritionix.com//v2/natural/nutrients', {
+fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
   headers: {
-    'x-app-key': apiKey,
-    'x-app-id': apiID,
-    'x-remote-user-id': "0"
+    'x-app-key': '296d00040a45afe09196876a88891206',
+    'x-app-id': 'f7691887'
+    // 'x-remote-user-id': "0"
   }
 })
 .then(response => response.json())
-.then(data => this.storedData = data)
-.then(console.log(this.storedData));
+.then(data => storedData = data)
+.then(() => console.log(storedData))
+.catch( err => {
+console.log(err);
+})
 
 app.get('/', function (req, res) {
   res.send(`Hello!`);
