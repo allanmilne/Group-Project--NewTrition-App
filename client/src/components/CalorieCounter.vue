@@ -26,6 +26,7 @@
             <option :value=1.55>Moderate exercise (3 - 5 days per week)</option>
             <option :value=1.725>Heavy exercise (6 - 7 days per week)</option>
             <option :value=1.9>Very heavy exercise (twice per day, heavy workouts)</option>
+          </select>
         </p>
         <p>
           <label for="age">Your age:  </label>
