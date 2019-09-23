@@ -24,7 +24,25 @@ app.get('/api/items', function (req, res) {
   })
     .then(response => response.json())
     .then(data => res.json(data))
-})
+});
+
+app.post('/api/items', function (req, res) {  
+  query = ((Object.values(req.query)[0]))
+
+  fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
+    headers: {
+      'x-app-key': apiKey,
+      'x-app-id': apiID
+    }
+  })
+    .then(response => response.json())
+    .then(data => res.json(data))
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({ status: 500, error: err });
+    });
+});
 
 app.get('/', function (req, res) {
   res.send(`Hello!`);
