@@ -25,7 +25,11 @@ To run the server, run the script below in your terminal whilst in the server di
 ### In Client Directory
 Before the program will work you will need to install the following packages:
 
+- highcharts: ```npm install --save highcharts```
 - node modules: ```npm install```
+- tiny-tabs: ```npm install --save vue-tiny-tabs```
+
+- Components: ```npm install --save vue-custom-range-slider```
 
 To run the client, run the script below in your terminal whilst in the client directory:
 
