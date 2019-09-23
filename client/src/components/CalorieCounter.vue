@@ -34,7 +34,6 @@
         <p>
           <label for="total">Your recommended calorie intake per day to maintain your current weight is:  </label>
           <p id="total">{{ this.totalCals }}</p>
-        </p>
       </form>
     </div>
 </template>
@@ -49,36 +48,37 @@ export default {
         Slider
     },
     data() {
-        return{
-            "gender": "",
-            "weight": null,
-            "height": null,
-            "activityLevel": null,
-            "age": null,
-            "totalCals": 0,
-            slider: "0",
-                sliderValues: [
-                {
-                    label: "Little to no exercise",
-                    value: "1.2"
-                },
-                {
-                    label: "Light exercise (1 - 3 days per week)",
-                    value: "1.375"
-                },
-                {
-                    label: "Moderate exercise (3 - 5 days per week)",
-                    value: "1.55"
-                },
-                {
-                    label: "Heavy exercise (6 - 7 days per week)",
-                    value: "1.725"
-                },
-                {
-                    label: "Very heavy exercise (twice per day, heavy workouts)",
-                    value: "1.9"
-                }
-                ]
+      return {
+        testItem: null,
+        "gender": "",
+        "weight": null,
+        "height": null,
+        "activityLevel": null,
+        "age": null,
+        "totalCals": 0,
+        slider: "0",
+            sliderValues: [
+            {
+                label: "Little to no exercise",
+                value: "1.2"
+            },
+            {
+                label: "Light exercise (1 - 3 days per week)",
+                value: "1.375"
+            },
+            {
+                label: "Moderate exercise (3 - 5 days per week)",
+                value: "1.55"
+            },
+            {
+                label: "Heavy exercise (6 - 7 days per week)",
+                value: "1.725"
+            },
+            {
+                label: "Very heavy exercise (twice per day, heavy workouts)",
+                value: "1.9"
+            }
+            ]
         }
     },
     methods: {
