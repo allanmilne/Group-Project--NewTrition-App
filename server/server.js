@@ -17,8 +17,8 @@ app.use(parser.json());
 
 fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
   headers: {
-    'x-app-key': '296d00040a45afe09196876a88891206',
-    'x-app-id': 'f7691887'
+    'x-app-key': '',
+    'x-app-id': ''
   }
 })
 .then(response => response.json())
