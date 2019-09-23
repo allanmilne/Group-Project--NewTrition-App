@@ -3,17 +3,28 @@
     <div class="hello">
       <h1>Nutrition App</h1>
       <p>Find out how good your food is!</p>
-      <h3>Search form goes here</h3>
-      <p id="empty-space">(empty space)</p>
       <vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false" @on-close="onClose" @on-before="onBefore" @on-after="onAfter">
-  		<div class="section" id="tab1-nutrition-search">
-  			<h3 class="title">Tab 1: Nutrition Information</h3>
-        <breakdown-chart/>
-  		</div>
-  		<div class="section" id="tab2-calorie-counter">
-  			<h3 class="title">Tab 2: Calorie Calculator</h3>
-        <calorie-counter/>
-  		</div>
+
+          <div class="section" id="tab1-nutrition-search">
+            <h3 class="title">Tab 1: Nutrition Information</h3>
+
+            <div class="columns">
+              <div id="nutrition-info">
+                <p>Nutrition info here!!!!</p>
+              </div>
+
+              <div id="food-search-info">
+                <h4>[Search form goes here]</h4>
+                <breakdown-chart/>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="section" id="tab2-calorie-counter">
+            <h3 class="title">Tab 2: Calorie Calculator</h3>
+            <calorie-counter/>
+          </div>
   		<!-- <div class="section" id="tab3-daily-total">
   			<h3 class="title">Tab 3: Daily Total</h3>
         <ul>
@@ -57,7 +68,7 @@ export default {
 
 <style>
 h3 {
-  margin: 40px 0 0;
+  text-align: center;
 }
 
 ul {
@@ -82,7 +93,7 @@ a {
 .tinytabs .tabs .tab {
 	margin: 0 3px 0 0;
 	background: #e1e1e1;
-	display: block;
+	/* display: block; */
 	padding: 6px 15px;
 	text-decoration: none;
 	color: #666;
@@ -100,6 +111,25 @@ a {
 	background: #f1f1f1;
 	color: #333;
 	text-shadow: none;
+}
+
+.columns{
+  display: flex;
+  justify-content: space-around;
+}
+
+#nutrition-info{
+  width: 35%;
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
+}
+
+#food-search-info{
+  width: 55%;
+  background-color: white;
+  margin: 1%;
+  padding: 1%;
 }
 
 #empty-space {
