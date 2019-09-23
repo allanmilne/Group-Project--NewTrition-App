@@ -19,7 +19,6 @@ fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
   headers: {
     'x-app-key': '296d00040a45afe09196876a88891206',
     'x-app-id': 'f7691887'
-    // 'x-remote-user-id': "0"
   }
 })
 .then(response => response.json())
