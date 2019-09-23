@@ -9,20 +9,24 @@ const apiKey = process.env.API_KEY;
 const apiID = process.env.API_ID;
 
 let storedData = null
+let query = 'cheese'
 
 dotenv.config();
 app.use(cors());
 app.use(parser.json());
 
-// fetch('https://trackapi.nutritionix.com/v2/search/item?nix_item_id=513fc9e73fe3ffd40300109f', {
-//   headers: {
-//     'x-app-key': apiKey,
-//     'x-app-id': apiID
-//   }
-// })
-// .then(response => response.json())
-// .then(data => this.storedData = data)
-// .then(console.log(this.storedData));
+fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
+  headers: {
+    'x-app-key': '',
+    'x-app-id': ''
+  }
+})
+.then(response => response.json())
+.then(data => storedData = data)
+.then(() => console.log(storedData))
+.catch( err => {
+console.log(err);
+})
 
 app.get('/', function (req, res) {
   res.send(`Hello!`);

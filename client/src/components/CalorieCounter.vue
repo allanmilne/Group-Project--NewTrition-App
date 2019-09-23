@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div id="calorie-counter-form">
       <form id="calorie-form" v-on:submit="handleSubmit">
         <h2>Calculate your daily recommended calorie intake: </h2>
@@ -11,19 +11,17 @@
         <p>
          <label for="weight">Your weight:  </label>
          <input type="number" id="weight" placeholder="weight in kgs" v-model.number="weight" required />
-        </p> 
+        </p>
         <p>
          <label for="height">Your height:  </label>
          <input type="number" id="height" placeholder="cms" v-model.number="height" required />
-         <!-- <input type="text" id="height" placeholder="ft" required /> -->
-         <!-- <input type="text" id="height" placeholder="inches" required /> -->
         </p>
         <p>
           <label for="age">Your age:  </label>
           <input type="number" id="age" v-model.number="age" required />
         </p>
         <p>
-          <label for="activity-level">Select how active you are weekly: </label>          
+          <label for="activity-level">Select how active you are weekly: </label>
           <slider class="slider"
             :values="sliderValues"
             min="0"
@@ -83,7 +81,7 @@ export default {
                 ]
         }
     },
-    methods: {    
+    methods: {
         handleSubmit(event) {
             event.preventDefault()
             this.calsPerDay()
