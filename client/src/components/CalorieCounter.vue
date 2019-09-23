@@ -19,6 +19,10 @@
          <!-- <input type="text" id="height" placeholder="inches" required /> -->
         </p>
         <p>
+          <label for="age">Your age:  </label>
+          <input type="number" id="age" v-model.number="age" required />
+        </p>
+        <p>
           <label for="activity-level">Select how active you are weekly: </label>          
           <slider class="slider"
             :values="sliderValues"
@@ -28,21 +32,16 @@
             v-model="activityLevel"
         ></slider>
         </p>
-        <p>
-          <label for="age">Your age:  </label>
-          <input type="number" id="age" v-model.number="age" required />
-        </p>
         <button id="submit">Submit</button>
         <p>
           <label for="total">Your recommended calorie intake per day to maintain your current weight is:  </label>
-          <p id="total" name="result">{{  }}</p>
+          <p id="total">{{ this.totalCals }}</p>
         </p>
       </form>
     </div>
 </template>
 
 <script>
-import { eventBus } from '../main';
 import Slider from "vue-custom-range-slider";
 import "vue-custom-range-slider/dist/vue-custom-range-slider.css";
 
@@ -58,6 +57,7 @@ export default {
             "height": null,
             "activityLevel": null,
             "age": null,
+            "totalCals": 0,
             slider: "0",
                 sliderValues: [
                 {
@@ -83,12 +83,12 @@ export default {
                 ]
         }
     },
-    methods: {
+    methods: {    
         handleSubmit(event) {
             event.preventDefault()
+            this.calsPerDay()
             {document.getElementById("calorie-form").reset()}
-        }
-    },
+        },
         calsPerDay() {
             let result = 0;
             if (this.gender === "male") {
@@ -96,24 +96,15 @@ export default {
             } else if (this.gender === "female") {
               result = (447.593 + (9.247 * this.weight) + (3.098 * this.height) - (4.330 * this.age)) * this.activityLevel;
             }
-            return result
+            this.totalCals = parseInt(result)
         }
-
-            // menBmr(weight, height, age, activityLevel) {
-            //   BMR = 88.362 + (13.39 * weight) + (4.799 * height) - (5.677 * age)
-            //   return total = BMR * activityLevel
-            //  };
-            // womenBmr(weight, height, age, activityLevel) {
-            //   BMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)
-            //   return total = BMR * activityLevel
-            // }
-            // v-on:click="calsPerDay()"
+    }
 }
 </script>
 
 <style lang="css" scoped>
 
    .slider{
-    width: 350px;
+    width: 300px;
    }
 </style>

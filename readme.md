@@ -27,6 +27,9 @@ Before the program will work you will need to install the following packages:
 
 - node modules: ```npm install```
 
+- Components: ```npm install --save vue-custom-range-slider```
+
 To run the client, run the script below in your terminal whilst in the client directory:
 
 - ```npm run serve```
+
