@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div id="calorie-counter-form">
       <form id="calorie-form" v-on:submit="handleSubmit">
         <h2>Calculate your daily recommended calorie intake: </h2>
@@ -20,12 +20,12 @@
         </p>
         <p>
           <label for="activity-level">Select how active you are weekly: </label>
-          <select v-on:change="activityLevel" v-model.number="activityLevel">
-            <option value=1.2>Little to no exercise</option>
-            <option value=1.375>Light exercise (1 - 3 days per week)</option> 
-            <option value=1.55>Moderate exercise (3 - 5 days per week)</option>
-            <option value=1.725>Heavy exercise (6 - 7 days per week)</option>
-            <option value=1.9>Very heavy exercise (twice per day, heavy workouts)</option>
+          <select v-model="activity-level">
+            <option :value=1.2>Little to no exercise</option>
+            <option :value=1.375>Light exercise (1 - 3 days per week)</option>
+            <option :value=1.55>Moderate exercise (3 - 5 days per week)</option>
+            <option :value=1.725>Heavy exercise (6 - 7 days per week)</option>
+            <option :value=1.9>Very heavy exercise (twice per day, heavy workouts)</option>
           </select>
         </p>
         <p>
@@ -83,5 +83,6 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style scoped>
+
 </style>
