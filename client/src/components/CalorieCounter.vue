@@ -19,14 +19,14 @@
          <!-- <input type="text" id="height" placeholder="inches" required /> -->
         </p>
         <p>
-          <label for="activity-level">Select how active you are weekly: </label>
-          <select v-on:change="activityLevel" v-model.number="activityLevel">
-            <option value=1.2>Little to no exercise</option>
-            <option value=1.375>Light exercise (1 - 3 days per week)</option> 
-            <option value=1.55>Moderate exercise (3 - 5 days per week)</option>
-            <option value=1.725>Heavy exercise (6 - 7 days per week)</option>
-            <option value=1.9>Very heavy exercise (twice per day, heavy workouts)</option>
-          </select>
+          <label for="activity-level">Select how active you are weekly: </label>          
+          <slider class="slider"
+            :values="sliderValues"
+            min="0"
+            max="100"
+            raising
+            v-model="activityLevel"
+        ></slider>
         </p>
         <p>
           <label for="age">Your age:  </label>
@@ -42,17 +42,45 @@
 </template>
 
 <script>
-import { eventBus } from '../main'
+import { eventBus } from '../main';
+import Slider from "vue-custom-range-slider";
+import "vue-custom-range-slider/dist/vue-custom-range-slider.css";
 
 export default {
     name: "calorie-counter",
+    components: {
+        Slider
+    },
     data() {
         return{
             "gender": "",
             "weight": null,
             "height": null,
             "activityLevel": null,
-            "age": null
+            "age": null,
+            slider: "0",
+                sliderValues: [
+                {
+                    label: "Little to no exercise",
+                    value: "1.2"
+                },
+                {
+                    label: "Light exercise (1 - 3 days per week)",
+                    value: "1.375"
+                },
+                {
+                    label: "Moderate exercise (3 - 5 days per week)",
+                    value: "1.55"
+                },
+                {
+                    label: "Heavy exercise (6 - 7 days per week)",
+                    value: "1.725"
+                },
+                {
+                    label: "Very heavy exercise (twice per day, heavy workouts)",
+                    value: "1.9"
+                }
+                ]
         }
     },
     methods: {
@@ -68,7 +96,7 @@ export default {
             } else if (this.gender === "female") {
               result = (447.593 + (9.247 * this.weight) + (3.098 * this.height) - (4.330 * this.age)) * this.activityLevel;
             }
-              return result
+            return result
         }
 
             // menBmr(weight, height, age, activityLevel) {
@@ -84,4 +112,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+   .slider{
+    width: 350px;
+   }
 </style>
