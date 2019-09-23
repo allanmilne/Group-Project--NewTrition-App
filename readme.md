@@ -27,6 +27,7 @@ Before the program will work you will need to install the following packages:
 
 - highcharts: ```npm install --save highcharts```
 - node modules: ```npm install```
+- tiny-tabs: ```npm install --save vue-tiny-tabs```
 
 - Components: ```npm install --save vue-custom-range-slider```
 

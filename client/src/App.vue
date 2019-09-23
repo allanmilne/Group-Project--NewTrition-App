@@ -3,13 +3,11 @@
     <div class="hello">
       <h1>Nutrition App</h1>
       <p>Find out how good your food is!</p>
+      <h3>Search form goes here</h3>
       <vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false" @on-close="onClose" @on-before="onBefore" @on-after="onAfter">
   		<div class="section" id="tab1-nutrition-search">
   			<h3 class="title">Tab 1: Nutrition Information</h3>
-        <ul>
-          <li>Search Box (form)</li>
-          <li><breakdown-chart/></li>
-        </ul>
+        <breakdown-chart/>
   		</div>
   		<div class="section" id="tab2-calorie-counter">
   			<h3 class="title">Tab 2: Calorie Calculator</h3>
