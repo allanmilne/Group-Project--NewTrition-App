@@ -92,24 +92,24 @@ a {
 }
 .tinytabs .tabs .tab {
 	margin: 0 3px 0 0;
-	background: #e1e1e1;
+	background: #bacbce;
 	/* display: block; */
 	padding: 6px 15px;
 	text-decoration: none;
-	color: #666;
+	color: #333;
 	font-weight: bold;
 	border-radius: 3px 3px 0 0;
 }
 .tinytabs .section {
-	background: #f1f1f1;
+	background: #95afb3;
 	overflow: hidden;
 	padding: 15px;
 	clear: both;
 	border-radius: 3px;
 }
 .tinytabs .tab.sel {
-	background: #f1f1f1;
-	color: #333;
+	background: #95afb3;
+	color: #191919;
 	text-shadow: none;
 }
 
@@ -120,16 +120,24 @@ a {
 
 #nutrition-info{
   width: 35%;
-  background-color: white;
+  background-color: #ece3cb;
   margin: 1%;
   padding: 1%;
+  border-radius: 1%;
+  border-style: solid;
+  border-width: 1%;
+  border-color: #5c7973;
 }
 
 #food-search-info{
   width: 55%;
-  background-color: white;
+  background-color: #ece3cb;
   margin: 1%;
   padding: 1%;
+  border-radius: 1%;
+  border-style: solid;
+  border-width: 1%;
+  border-color: #5c7973;
 }
 
 #empty-space {
