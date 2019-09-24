@@ -1,11 +1,11 @@
 <template>
     <div id="calorie-counter-form">
       <form id="calorie-form" v-on:submit="handleSubmit">
-        <h2>Calculate your daily recommended calorie intake: </h2>
+        <h2>Enter your details below to calculate your daily recommended calorie intake: </h2>
         <p>Gender:
-          <label for="male">Male </label>
+          <label for="male"> Male </label>
           <input type="radio" id="male" name="gender" value="male" v-model="gender">
-          <label for="female">Female </label>
+          <label for="female"> Female </label>
           <input type="radio" id="female" name="gender" value="female" v-model="gender">
         </p>
         <p>
@@ -31,10 +31,7 @@
         ></slider>
         </p>
         <button id="submit">Submit</button>
-        <p>
-          <label for="total">Your recommended calorie intake per day to maintain your current weight is:  </label>
-          <p id="total">{{ this.totalCals }}</p>
-        </p>
+        <p>Your recommended calorie intake per day to maintain your current weight is: {{ this.totalCals }}</p>
       </form>
     </div>
 </template>
@@ -104,5 +101,11 @@ export default {
 
    .slider{
     width: 300px;
+    margin-left: 35%;
    }
+
+  #calorie-counter-form{
+    text-align: center;
+  }
+
 </style>

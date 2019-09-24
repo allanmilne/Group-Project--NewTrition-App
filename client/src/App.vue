@@ -8,6 +8,7 @@
       <vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false" @on-close="onClose" @on-before="onBefore" @on-after="onAfter">
   		<div class="section" id="tab1-nutrition-search">
   			<h3 class="title">Tab 1: Nutrition Information</h3>
+        <nutritional-information />
         <breakdown-chart/>
   		</div>
   		<div class="section" id="tab2-calorie-counter">
@@ -31,14 +32,16 @@
 import VueTinyTabs from 'vue-tiny-tabs';
 import CalorieCounter from './components/CalorieCounter';
 import { eventBus } from './main';
-import BreakdownChart from './components/BreakdownChart.vue'
+import BreakdownChart from './components/BreakdownChart.vue';
+import NutritionalInformation from './components/NutritionalInformation.vue';
 
 export default {
   name: 'app',
   components: {
     'vue-tiny-tabs': VueTinyTabs,
     'calorie-counter': CalorieCounter,
-    'breakdown-chart': BreakdownChart
+    'breakdown-chart': BreakdownChart,
+    'nutritional-information': NutritionalInformation,
   },
   props: [""],
   methods: {
