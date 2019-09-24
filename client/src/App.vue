@@ -10,7 +10,7 @@
 
             <div class="columns">
               <div id="nutrition-info">
-                <p>Nutrition info here!!!!</p>
+                <nutritional-information/>
               </div>
 
               <div id="food-search-info">
