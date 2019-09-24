@@ -92,7 +92,7 @@ export default {
     eventBus.$on('selected-item', (item) => {
       this.selectedItem = item;
 
-      ApiService.getSpecificItemDetails(selectedItem)
+      ApiService.getSpecificItemDetails(item)
       .then(itemDetail => itemDetail.json())
       .then(data => this.itemDetail = data)
       .then(() => console.log("details:",this.itemDetail));

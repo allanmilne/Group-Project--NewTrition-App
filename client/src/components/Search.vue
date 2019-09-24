@@ -10,12 +10,15 @@
           <th>Image</th>
           <th>Name</th>
           <th>Serving</th>
+          <th></th>
         </thead>
         <tbody 
-        v-for="item in searchedItemDetails.common" :item="item" :key="item.id">
+        v-for="item in searchedItemDetails.common" :item="item" :key="item.id"
+        v-on:click="handleClick">
           <td><img class="item-image" :src="item.photo.thumb" alt=""></td>
           <td>{{ item.food_name }}</td>
           <td>{{ item.serving_qty }}</td>
+          <td><input type="button" v-on:click="selectedItem = item.food_name"></td>
         </tbody>
       </table>
   </div>
@@ -29,7 +32,7 @@ import ApiService from '../services/ApiService'
 export default {
   data() {
     return {
-    searchedItem: "",
+    searchedItem: null,
     selectedItem: null
     }
   },
