@@ -1,6 +1,5 @@
 <template>
-    <div class="chart">
-      <p>I Am Here!</p>
+    <div class="chart" v-if="selectedItem === !selectedItem">
       <highcharts id="pie-chart" :options="chartOptions"></highcharts>
     </div>
 </template>
@@ -15,9 +14,9 @@ export default {
     ApiService.getItem()
     .then(item => this.testItem = item);
   },
+  props: ["selectedItem"], 
   data() {
     return {
-      testItem: [],
       chartOptions: {
         chart: {
           plotBackgroundColor: null,
@@ -31,7 +30,7 @@ export default {
           text: 'Nutritional Facts'
         },
         subtitle: {
-          text: "Steak Pie - 1 Serving, 694 Kcal"
+          text: `${this.food_name} - 1 Serving, ${this.nf_calories} Kcal`
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -46,15 +45,15 @@ export default {
               }
           }
         },
-        series: [{ // MAKE DYNAMIC
+        series: [{
           type: 'pie',
           name: 'Food Breakdown',
           keys: ['name', 'y', 'sliced', 'selected'],
           data: [
-              ['Total Fat 33g', 33.0],
-              ['Saturated Fat 11g', 11.0],
-              ['Sugars 5.1g', 5.1],
-              [`Salt 815mg`, 0.815]
+              [`Total Fat ${this.nf_total_fat}g`, this.nf_total_fat],
+              [`Saturated Fat ${this.nf_saturated_fat}g`, this.nf_saturated_fat],
+              [`Sugars ${this.nf_sugars}g`, this.nf_sugars],
+              [`Salt ${this.nf_sodium}mg`, (this.nf_sodium / 1000)]
           ]
         }]
       }

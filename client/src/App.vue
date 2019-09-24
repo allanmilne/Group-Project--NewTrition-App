@@ -55,8 +55,8 @@ export default {
   data() {
     return {
       searchedItem: "",
-      itemDetail: null
-
+      itemDetail: null,
+      selectedItem: null
     }
   },
   components: {
@@ -86,8 +86,11 @@ export default {
       .then(itemDetail => itemDetail.json())
       .then(data => this.itemDetail = data)
       .then(() => console.log("details:",this.itemDetail))
+    }),
+    eventBus.$on('selected-item', (item) => {
+      this.selectedItem = item;
     })
-  },
+  }
 }
 
 </script>
