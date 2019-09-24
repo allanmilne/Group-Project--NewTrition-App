@@ -77,13 +77,14 @@ export default {
 
 <style>
 body {
-  background-image: url('../public/food-background-image-04.jpg');
+  background-image: url('../public/food-background-image-05.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #ece3cb;
-  font-family: sans-serif;
+  /* background-color: #ece3cb; */
+  background-color: #ede5d0;
+  font-family: Verdana, sans-serif;
 }
 
 h3 {
@@ -105,10 +106,12 @@ a {
   text-align: center;
   line-height: 1.2em;
   margin: 4% 0 2% 0;
+  /* color: #0e0c0c; */
+  color: black;
 }
 
 #app-name {
-  font-size: 3em;
+  font-size: 4em;
 }
 
 #tabs-container {
