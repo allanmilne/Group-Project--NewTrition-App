@@ -4,7 +4,7 @@
       <div class="hello">
 
         <div id="header">
-          <h1>Nutrition App</h1>
+          <h1 id="app-name">Nutrition App</h1>
           <p>Find out how good your food is!</p>
         </div>
 
@@ -83,6 +83,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: #ece3cb;
+  font-family: sans-serif;
 }
 
 h3 {
@@ -104,6 +105,10 @@ a {
   text-align: center;
   line-height: 1.2em;
   margin: 4% 0 2% 0;
+}
+
+#app-name {
+  font-size: 3em;
 }
 
 #tabs-container {
