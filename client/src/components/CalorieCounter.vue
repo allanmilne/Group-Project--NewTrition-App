@@ -1,11 +1,11 @@
 <template>
     <div id="calorie-counter-form">
       <form id="calorie-form" v-on:submit="handleSubmit">
-        <h2>Calculate your daily recommended calorie intake: </h2>
+        <h2>Enter your details below to calculate your daily recommended calorie intake: </h2>
         <p>Gender:
-          <label for="male">Male </label>
+          <label for="male"> Male </label>
           <input type="radio" id="male" name="gender" value="male" v-model="gender">
-          <label for="female">Female </label>
+          <label for="female"> Female </label>
           <input type="radio" id="female" name="gender" value="female" v-model="gender">
         </p>
         <p>
@@ -31,10 +31,7 @@
         ></slider>
         </p>
         <button id="submit">Submit</button>
-        <p>
-          <label for="total">Your recommended calorie intake per day to maintain your current weight is:  </label>
-          <p id="total">{{ this.totalCals }}</p>
-        </p>
+        <p class="rda">Your recommended calorie intake per day to maintain your current weight is: <span>{{ this.totalCals }}</span></p>
       </form>
     </div>
 </template>
@@ -49,36 +46,37 @@ export default {
         Slider
     },
     data() {
-        return{
-            "gender": "",
-            "weight": null,
-            "height": null,
-            "activityLevel": null,
-            "age": null,
-            "totalCals": 0,
-            slider: "0",
-                sliderValues: [
-                {
-                    label: "Little to no exercise",
-                    value: "1.2"
-                },
-                {
-                    label: "Light exercise (1 - 3 days per week)",
-                    value: "1.375"
-                },
-                {
-                    label: "Moderate exercise (3 - 5 days per week)",
-                    value: "1.55"
-                },
-                {
-                    label: "Heavy exercise (6 - 7 days per week)",
-                    value: "1.725"
-                },
-                {
-                    label: "Very heavy exercise (twice per day, heavy workouts)",
-                    value: "1.9"
-                }
-                ]
+      return {
+        testItem: null,
+        "gender": "",
+        "weight": null,
+        "height": null,
+        "activityLevel": null,
+        "age": null,
+        "totalCals": 0,
+        slider: "0",
+            sliderValues: [
+            {
+                label: "Little to no exercise",
+                value: "1.2"
+            },
+            {
+                label: "Light exercise (1 - 3 days per week)",
+                value: "1.375"
+            },
+            {
+                label: "Moderate exercise (3 - 5 days per week)",
+                value: "1.55"
+            },
+            {
+                label: "Heavy exercise (6 - 7 days per week)",
+                value: "1.725"
+            },
+            {
+                label: "Very heavy exercise (twice per day, heavy workouts)",
+                value: "1.9"
+            }
+            ]
         }
     },
     methods: {
@@ -102,7 +100,20 @@ export default {
 
 <style lang="css" scoped>
 
-   .slider{
-    width: 300px;
-   }
+  .slider{
+  width: 300px;
+  margin-left: 35%;
+  }
+
+  #calorie-counter-form{
+    text-align: center;
+  }
+
+  span {
+    color: white;
+    font-weight: 700;
+  }
+  .rda {
+    font-weight: 700;
+  }
 </style>
