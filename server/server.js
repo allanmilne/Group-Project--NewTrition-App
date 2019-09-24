@@ -13,20 +13,20 @@ const apiID = process.env.API_ID;
 app.use(cors());
 app.use(parser.json());
 
-app.get('/api/items', function (req, res) {
-  let query = 'banana'
+// app.get('/api/items', function (req, res) {
+//   let query = 'banana'
 
-  fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
-    headers: {
-      'x-app-key': apiKey,
-      'x-app-id': apiID
-    }
-  })
-    .then(response => response.json())
-    .then(data => res.json(data))
-});
+//   fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
+//     headers: {
+//       'x-app-key': apiKey,
+//       'x-app-id': apiID
+//     }
+//   })
+//     .then(response => response.json())
+//     .then(data => res.json(data))
+// });
 
-app.post('/api/items', function (req, res) {  
+app.get('/api/items', function (req, res) {  
   query = ((Object.values(req.query)[0]))
 
   fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
