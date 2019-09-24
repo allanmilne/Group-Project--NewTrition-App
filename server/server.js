@@ -27,7 +27,10 @@ app.get('/api/items', function (req, res) {
 });
 
 app.post('/api/items', function (req, res) {  
-  query = ((Object.values(req.query)[0]))
+  // query = ((Object.values(req.query)[0]))
+  console.log(req.body);
+  
+  query = "strawberry"
 
   fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
     headers: {

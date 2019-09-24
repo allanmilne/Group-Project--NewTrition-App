@@ -14,7 +14,7 @@
               </div>
 
               <div id="food-search-info">
-                <h4>[Search form goes here]</h4>
+                <search-form/>
                 <breakdown-chart/>
               </div>
             </div>
@@ -44,14 +44,24 @@ import CalorieCounter from './components/CalorieCounter';
 import { eventBus } from './main';
 import BreakdownChart from './components/BreakdownChart.vue';
 import NutritionalInformation from './components/NutritionalInformation.vue';
+import Search from './components/Search.vue';
+import ApiService from './services/ApiService'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      searchedItem: "",
+      itemDetail: null
+
+    }
+  },
   components: {
     'vue-tiny-tabs': VueTinyTabs,
     'calorie-counter': CalorieCounter,
     'breakdown-chart': BreakdownChart,
     'nutritional-information': NutritionalInformation,
+    'search-form': Search
   },
   props: [""],
   methods: {
@@ -64,7 +74,15 @@ export default {
     onAfter (id, tab) {
       console.log('Callback function that gets evaluated after a tab is activated', id, tab)
     }
-  }
+  },
+    mounted() {
+
+    eventBus.$on('searched-item', (item) => {
+      this.searchedItem = item;
+      ApiService.getItem()
+      .then(itemDetail => this.itemDetail = itemDetail)
+    })
+  },
 }
 
 </script>
