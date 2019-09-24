@@ -15,7 +15,9 @@
 
               <div id="food-search-info">
                 <!-- <h4>[Search form goes here]</h4> -->
-                <search-form/>
+                <search-form
+                  :selected-item-details="selectedItemDetails"
+                  :searched-item-details="searchedItemDetails"/>
                 <breakdown-chart/>
               </div>
             </div>
@@ -53,8 +55,9 @@ export default {
   data() {
     return {
       searchedItem: "",
-      itemDetail: null,
-      selectedItem: null
+      searchedItemDetails: null,
+      selectedItem: null,
+      selectedItemDetails: null
     }
   },
   components: {
@@ -80,13 +83,19 @@ export default {
 
     eventBus.$on('searched-item', (item) => {
       this.searchedItem = item;
+      
       ApiService.getItemDetails(item)
       .then(itemDetail => itemDetail.json())
-      .then(data => this.itemDetail = data)
-      .then(() => console.log("details:",this.itemDetail))
+      .then(data => this.searchedItemDetails = data)
     }),
+
     eventBus.$on('selected-item', (item) => {
       this.selectedItem = item;
+
+      ApiService.getSpecificItemDetails(selectedItem)
+      .then(itemDetail => itemDetail.json())
+      .then(data => this.itemDetail = data)
+      .then(() => console.log("details:",this.itemDetail));
     })
   }
 }

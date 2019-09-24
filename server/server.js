@@ -26,7 +26,7 @@ app.use(parser.json());
 //     .then(data => res.json(data))
 // });
 
-app.get('/api/items', function (req, res) {  
+app.get('/api/items', function (req, res) {
   query = ((Object.values(req.query)[0]))
 
   fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
