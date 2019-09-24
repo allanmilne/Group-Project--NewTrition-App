@@ -3,6 +3,8 @@
     <div class="hello">
       <h1 class="heading">Nutrition App</h1>
       <p class="sub-heading">Find out how good your food is!</p>
+      <h1>Nutrition App</h1>
+      <p>Find out how good your food is!</p>
       <vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false" @on-close="onClose" @on-before="onBefore" @on-after="onAfter">
 
           <div class="section" id="tab1-nutrition-search">
@@ -15,6 +17,7 @@
 
               <div id="food-search-info">
                 <h4>[Search form goes here]</h4>
+                <search-form/>
                 <breakdown-chart/>
               </div>
             </div>
@@ -44,14 +47,24 @@ import CalorieCounter from './components/CalorieCounter';
 import { eventBus } from './main';
 import BreakdownChart from './components/BreakdownChart.vue';
 import NutritionalInformation from './components/NutritionalInformation.vue';
+import Search from './components/Search.vue';
+import ApiService from './services/ApiService'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      searchedItem: "",
+      itemDetail: null
+
+    }
+  },
   components: {
     'vue-tiny-tabs': VueTinyTabs,
     'calorie-counter': CalorieCounter,
     'breakdown-chart': BreakdownChart,
     'nutritional-information': NutritionalInformation,
+    'search-form': Search
   },
   props: [""],
   methods: {
@@ -64,19 +77,29 @@ export default {
     onAfter (id, tab) {
       console.log('Callback function that gets evaluated after a tab is activated', id, tab)
     }
-  }
+  },
+    mounted() {
+
+    eventBus.$on('searched-item', (item) => {
+      this.searchedItem = item;
+      ApiService.getItemDetails(item)
+      .then(itemDetail => itemDetail.json())
+      .then(data => this.itemDetail = data)
+      .then(() => console.log("details:",this.itemDetail))
+    })
+  },
 }
 
 </script>
 
 <style>
-body {
+/* body {
   background-image: url('../../../../../Desktop/carrots_food_fresh_freshness_harvest_healthy_herbs_ingredients-1561725.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
-}
+} */
 
 .heading, .sub-heading, h3 {
   text-align: center;
@@ -113,7 +136,8 @@ a {
 }
 .tinytabs .tabs .tab {
 	margin: 0 3px 0 0;
-	background: rgba(100, 100, 100, 0.5);;
+	/* background: rgba(100, 100, 100, 0.5); */
+	background: #bacbce;
 	/* display: block; */
 	padding: 6px 15px;
 	text-decoration: none;
@@ -122,14 +146,16 @@ a {
 	border-radius: 3px 3px 0 0;
 }
 .tinytabs .section {
-	background: rgba(100, 100, 100, 0.5);;
+	/* background: rgba(100, 100, 100, 0.5); */
+	background: #95afb3;
 	overflow: hidden;
 	padding: 15px;
 	clear: both;
 	border-radius: 3px;
 }
 .tinytabs .tab.sel {
-	background: rgba(100, 100, 100, 0.5);;
+	/* background: rgba(100, 100, 100, 0.5); */
+	background: #95afb3;
 	color: #191919;
 	text-shadow: none;
 }

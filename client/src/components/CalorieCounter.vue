@@ -32,6 +32,7 @@
         </p>
         <button id="submit">Submit</button>
         <p class="rda">Your recommended calorie intake per day to maintain your current weight is: <span>{{ this.totalCals }}</span></p>
+        <p>Your recommended calorie intake per day to maintain your current weight is: {{ this.totalCals }}</p>
       </form>
     </div>
 </template>
@@ -104,6 +105,10 @@ export default {
   width: 300px;
   margin-left: 35%;
   }
+   .slider{
+    width: 300px;
+    margin-left: 35%;
+   }
 
   #calorie-counter-form{
     text-align: center;
