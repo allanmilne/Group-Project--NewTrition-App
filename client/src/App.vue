@@ -79,8 +79,10 @@ export default {
 
     eventBus.$on('searched-item', (item) => {
       this.searchedItem = item;
-      ApiService.getItem()
-      .then(itemDetail => this.itemDetail = itemDetail)
+      ApiService.getItemDetails(item)
+      .then(itemDetail => itemDetail.json())
+      .then(data => this.itemDetail = data)
+      .then(() => console.log("details:",this.itemDetail))
     })
   },
 }

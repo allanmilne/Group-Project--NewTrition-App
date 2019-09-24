@@ -4,6 +4,15 @@
     <form v-on:submit="handleSubmit">
       <input type="text" placeholder="search for an item..." v-model="searchedItem">
       <button id="submit">Submit</button>
+      <ul>
+        <li>Banana</li>
+        <li>Banana</li>
+        <li>Banana</li>
+        <li>Banana</li>
+        <li>Banana</li>
+        <li>Banana</li>
+        <li>Banana</li>
+      </ul>
     </form>
   </div>
 
