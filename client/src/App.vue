@@ -95,7 +95,7 @@ export default {
 
 <style>
 body {
-  background-image: url('../../../../../Desktop/carrots_food_fresh_freshness_harvest_healthy_herbs_ingredients-1561725.jpg');
+  background-image: url('../public/food-bg-img.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
