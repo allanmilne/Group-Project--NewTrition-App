@@ -1,14 +1,22 @@
 <template>
     <div class="chart">
+      <p>I Am Here!</p>
       <highcharts id="pie-chart" :options="chartOptions"></highcharts>
     </div>
 </template>
 
 <script>
 
+import ApiService from '../services/ApiService.js';
+
 export default {
+  mounted() {
+    ApiService.getItem()
+    .then(item => this.testItem = item);
+  },
   data() {
     return {
+      testItem: [],
       chartOptions: {
         chart: {
           plotBackgroundColor: null,
