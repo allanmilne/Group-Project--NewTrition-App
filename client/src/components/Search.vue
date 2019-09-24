@@ -2,7 +2,7 @@
 
   <div>
     <form v-on:submit="handleSubmit">
-      <input type="text" placeholder="search for an item..." v-model="searchedItem">
+      <input type="text" placeholder="search for a food..." v-model="searchedItem">
       <button id="submit">Submit</button>
       <ul v-for="item in itemDetail" :item="item" :key="item.id" >
         <li v-on:click="handleClick">{{ item.name }}</li>
