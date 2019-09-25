@@ -4,39 +4,39 @@
       <form id="calorie-form" v-on:submit="handleSubmit">
         <table class="table">
           <tr>
-            <th for="gender">Gender</th>
+            <th for="sex">Sex: </th>
             <td>
               <label for="male">Male</label>
-              <input type="radio" id="male" name="gender" value="male" v-model="gender" checked="checked">
+              <input type="radio" id="male" name="sex" value="male" v-model="sex" checked="checked">
             </td>
             <td>
               <label for="female">Female</label>
-              <input type="radio" id="female" name="gender" value="female" v-model="gender">
+              <input type="radio" id="female" name="sex" value="female" v-model="sex">
             </td>
           </tr>
 
           <tr>
-            <th for="weight">Weight</th>
+            <th for="weight">Weight: </th>
             <td>
               <input type="number" id="weight" placeholder="weight in kgs" v-model.number="weight" required />
             </td>
           </tr>
 
           <tr>
-            <th for="height">Height</th>
+            <th for="height">Height: </th>
             <td>
               <input type="number" id="height" placeholder="cms" v-model.number="height" required />
             </td>
           </tr>
 
           <tr>
-            <th for="age">Age</th>
+            <th for="age">Age: </th>
             <td>
               <input type="number" id="age" v-model.number="age" required />              
             </td>
           </tr>
 
-            <th for="activity-level">Your Activity Level</th>
+            <th for="activity-level">Your Activity Level: </th>
               <div>
                   <slider class="slider"
                   :values="sliderValues"
@@ -68,7 +68,7 @@ export default {
     data() {
       return {
         testItem: null,
-        "gender": "",
+        "sex": "",
         "weight": null,
         "height": null,
         "activityLevel": null,
@@ -107,9 +107,9 @@ export default {
         },
         calsPerDay() {
             let result = 0;
-            if (this.gender === "male") {
+            if (this.sex === "male") {
               result = (88.362 + (13.39 * this.weight) + (4.799 * this.height) - (5.677 * this.age)) * this.activityLevel;
-            } else if (this.gender === "female") {
+            } else if (this.sex === "female") {
               result = (447.593 + (9.247 * this.weight) + (3.098 * this.height) - (4.330 * this.age)) * this.activityLevel;
             }
             this.totalCals = parseInt(result)

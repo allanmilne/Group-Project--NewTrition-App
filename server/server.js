@@ -10,6 +10,8 @@ dotenv.config();
 const apiKey = process.env.API_KEY;
 const apiID = process.env.API_ID;
 
+console.log(apiKey, apiID)
+
 app.use(cors());
 app.use(parser.json());
 
