@@ -15,10 +15,6 @@
                 <nutritional-information :selected-item-details="selectedItemDetails"/>
               </div>
 
-              <div class="food-search-info">
-                <search-form :searched-item-details="searchedItemDetails"/>
-              </div>
-
               <div class="pie-chart">
                 <breakdown-chart :selected-item-details="selectedItemDetails"/>
                 <search-form :searched-item-details="searchedItemDetails"/>
