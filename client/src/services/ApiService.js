@@ -1,12 +1,14 @@
-const baseURL = 'http://localhost:3000/api/items'
+const baseURL = 'http://localhost:3000'
 
 export default {
-  getItem() {
-    return fetch(baseURL)
-    .then(res => res.json())
-  },
   getItemDetails(searchedItem) {
-    return fetch(`${baseURL}?query=${searchedItem}`)
+    return fetch(`${baseURL}/api/items?query=${searchedItem}`);
+  },
+
+  getSpecificItemDetails(selectedItem) {
+    return fetch(`${baseURL}/api/items/specific_item/${selectedItem}`); 
   }
 }
+
+
 

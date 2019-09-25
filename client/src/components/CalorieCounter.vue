@@ -1,38 +1,59 @@
 <template>
     <div id="calorie-counter-form">
-      <form id="calorie-form" v-on:submit="handleSubmit">
         <h2>Enter your details below to calculate your daily recommended calorie intake: </h2>
-        <p>Gender:
-          <label for="male"> Male </label>
-          <input type="radio" id="male" name="gender" value="male" v-model="gender">
-          <label for="female"> Female </label>
-          <input type="radio" id="female" name="gender" value="female" v-model="gender">
-        </p>
-        <p>
-         <label for="weight">Your weight:  </label>
-         <input type="number" id="weight" placeholder="weight in kgs" v-model.number="weight" required />
-        </p>
-        <p>
-         <label for="height">Your height:  </label>
-         <input type="number" id="height" placeholder="cms" v-model.number="height" required />
-        </p>
-        <p>
-          <label for="age">Your age:  </label>
-          <input type="number" id="age" v-model.number="age" required />
-        </p>
-        <p>
-          <label for="activity-level">Select how active you are weekly: </label>
-          <slider class="slider"
-            :values="sliderValues"
-            min="0"
-            max="100"
-            raising
-            v-model="activityLevel"
-        ></slider>
-        </p>
-        <button id="submit">Submit</button>
-        <p class="rda">Your recommended calorie intake per day to maintain your current weight is: <span>{{ this.totalCals }}</span></p>
-        <!-- <p>Your recommended calorie intake per day to maintain your current weight is: {{ this.totalCals }}</p> -->
+      <form id="calorie-form" v-on:submit="handleSubmit">
+        <table class="table">
+          <tr>
+            <th for="gender">Gender</th>
+            <td>
+              <label for="male">Male</label>
+              <input type="radio" id="male" name="gender" value="male" v-model="gender" checked="checked">
+            </td>
+            <td>
+              <label for="female">Female</label>
+              <input type="radio" id="female" name="gender" value="female" v-model="gender">
+            </td>
+          </tr>
+
+          <tr>
+            <th for="weight">Weight</th>
+            <td>
+              <input type="number" id="weight" placeholder="weight in kgs" v-model.number="weight" required />
+            </td>
+          </tr>
+
+          <tr>
+            <th for="height">Height</th>
+            <td>
+              <input type="number" id="height" placeholder="cms" v-model.number="height" required />
+            </td>
+          </tr>
+
+          <tr>
+            <th for="age">Age</th>
+            <td>
+              <input type="number" id="age" v-model.number="age" required />              
+            </td>
+          </tr>
+
+            <th for="activity-level">Activity Level</th>
+              <div>
+                  <slider class="slider"
+                  :values="sliderValues"
+                  min="0"
+                  max="100"
+                  raising
+                  v-model="activityLevel">
+                  </slider>
+              </div>
+                <div class="calc-btn">
+                    <button id="submit">Calculate</button>
+                </div>
+        </table>
+
+        <div class="result">
+          <h1 class="rda">Your recommended calorie intake per day to maintain your current weight is: <span>{{ this.totalCals }}</span></h1>
+        </div>
       </form>
     </div>
 </template>
@@ -44,7 +65,7 @@ import "vue-custom-range-slider/dist/vue-custom-range-slider.css";
 export default {
     name: "calorie-counter",
     components: {
-        Slider
+      Slider
     },
     data() {
       return {
@@ -101,24 +122,34 @@ export default {
 
 <style lang="css" scoped>
 
-  .slider{
-  width: 300px;
+.slider{
+  width: 200px;
   margin-left: 35%;
-  }
-   .slider{
-    width: 300px;
-    margin-left: 35%;
-   }
+}
 
-  #calorie-counter-form{
-    text-align: center;
-  }
+.table{
+  width: 60%;
+  margin: auto;
+  position: relative;
+  text-align: center;
+  top: 50%;  
+  background: white;
+}
 
-  span {
-    color: white;
-    font-weight: 700;
-  }
-  .rda {
-    font-weight: 700;
-  }
+.calc-btn {
+  position: relative;
+}
+
+.result {
+  position: relative;
+  text-align: center;
+}
+
+span {
+  color: white;
+  font-weight: 700;
+}
+.rda {
+  font-weight: 700;
+}
 </style>
