@@ -5,19 +5,39 @@
 
       <div id="lights">
         <div id="label1">
-          <p v-on:click="showCalories = !showCalories">Calories</p>   
+          <p v-on:click="showCalories = !showCalories">Calories
+            <p v-if="selectedItemDetails">
+              {{selectedItemDetails.nf_calories}}
+            </p>
+          </p>   
         </div>
         <div id="label2"> 
-          <p v-on:click="showFats = !showFats">Fats</p>
+          <p v-on:click="showFats = !showFats">Fats
+            <p v-if="selectedItemDetails">
+              {{selectedItemDetails.nf_total_fat}}
+            </p>
+          </p>
         </div>
         <div id="label3">
-          <p v-on:click="showSatFats = !showSatFats">Saturated fat</p>
+          <p v-on:click="showSatFats = !showSatFats">Saturated fat
+           <p v-if="selectedItemDetails">
+              {{selectedItemDetails.nf_saturated_fat}}
+            </p>
+          </p>
         </div>
         <div id="label4">
-          <p v-on:click="showSugars = !showSugars">Sugars</p>
+          <p v-on:click="showSugars = !showSugars">Sugars
+            <p v-if="selectedItemDetails">
+              {{selectedItemDetails.nf_sugars}}
+            </p>
+          </p>
         </div>
         <div id="label5">
-          <p v-on:click="showSalt = !showSalt">Salt</p>
+          <p v-on:click="showSalt = !showSalt">Salt
+            <p v-if="selectedItemDetails">
+              {{selectedItemDetails.nf_sodium}}
+            </p>
+          </p>
         </div>
       </div>
     </div>
@@ -55,8 +75,9 @@ export default {
       showSatFats: false,
       showSugars: false,
       showSalt: false
-    };
-  }
+    }
+  },
+  props: ['selectedItemDetails'],
 };
 </script>
 

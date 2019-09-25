@@ -52,7 +52,7 @@ export default {
         searchedItem: "",
         searchedItemDetails: null,
         selectedItem: null,
-        selectedItemDetails: {}
+        selectedItemDetails: null
       }
     },
     components: {
