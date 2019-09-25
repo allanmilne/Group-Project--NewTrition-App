@@ -153,8 +153,8 @@ a {
   flex-direction: column;
   justify-content: space-around;
   background-color: white;
-  align-items: center;
-  width: 100%;
+  /* align-items: center; */
+  /* width: 100%; */
 }
 
 .container > div {
@@ -165,10 +165,13 @@ a {
 .nutrition-info{
   margin: 1%;
   padding: 1%;
+  width: 40%;
 }
 
 .food-search-info{
-  justify-content: center;
+  /* justify-content: center; */
+  width: 55%;
+  
 }
 
 .section {

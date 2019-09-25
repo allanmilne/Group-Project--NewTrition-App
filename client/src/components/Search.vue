@@ -50,7 +50,6 @@ export default {
 </script>
 
 <style scoped>
-
 .item-image {
   height: 40px;
   width: 40px;
@@ -124,5 +123,9 @@ th, td {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
+}
+
+input {
+  margin-right: 20px;
 }
 </style>
