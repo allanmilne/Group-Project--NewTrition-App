@@ -15,19 +15,17 @@ app.use(parser.json());
 
 // Get Details on Specific Item
 
-app.get('/api/items/specific_item', function(req, res) {
-  console.log("req.body:", req.body);
-  
-  requestBody = JSON.stringify(req.body);
-  console.log(requestBody);
-  
+app.get('/api/items/specific_item/:item', function(req, res) {  
   fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', {
   method: 'POST', 
   headers: {
     'x-app-key': apiKey,
-    'x-app-id': apiID
+    'x-app-id': apiID,
+    'Content-Type': 'application/json' 
   },
-  body: requestBody
+  body: JSON.stringify({
+    "query": req.params.item
+  })
 })
   .then(response => response.json())
   .then(data => res.json(data))
@@ -42,9 +40,7 @@ app.get('/api/items/specific_item', function(req, res) {
 
 app.get('/api/items', function (req, res) {
   query = ((Object.values(req.query)[0]))
-  console.log("req.query:", req.query);
-  console.log("query:", query);
-  
+    
   fetch('https://trackapi.nutritionix.com/v2/search/instant?query=' + query, {
     headers: {
       'x-app-key': apiKey,
