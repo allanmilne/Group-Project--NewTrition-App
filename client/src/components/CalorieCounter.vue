@@ -35,21 +35,23 @@
               <input type="number" id="age" v-model.number="age" required />              
             </td>
           </tr>
-            <div class="acc-lvl-text" for="activity-level">
-              <br>
-              <p>Activity Level: </p>
-            </div>
-              <div>
-                  <slider class="slider"
+
+          <tr>
+            <th>Activity Level:</th>
+            <td>
+              <div class="acc-lvl-text" for="activity-level">
+              <slider class="slider"
                   :values="sliderValues"
                   raising
                   v-model="activityLevel">
                   </slider>
               </div>
-                <div class="calc-btn">
-                    <button id="submit">Calculate</button>
-                </div>
+            </td>
+          </tr>
         </table>
+        <div>
+            <button id="submit">Calculate</button>
+        </div>
 
         <div class="result">
           <h2 class="rda">Recommended calorie intake per day: <span>{{ this.totalCals }}</span></h2>
@@ -124,13 +126,14 @@ export default {
 table
 .acc-lvl-text {
   font-weight: bold;
-  text-align: right;
+  text-align: center;
   color: black;
+  display: inline-flex;
 }
 
 .slider{
   width: 200px;
-  margin-left: 50%;
+  margin-left: 10%;
   color: black;
 }
 
@@ -138,7 +141,7 @@ table
   font-size: 150%;
   border-radius: 1em;
   background: rgba(100, 100, 100, 0.5);  
-  width: 50%;
+  width: 80%;
   height: 75%;
   margin: auto;
   padding: 1em;
@@ -173,4 +176,67 @@ span {
 .rda {
   font-weight: 700;
 }
+
+#submit {
+    width: 100px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: black;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin-left: 50%;
+    margin-top: 20px;
+}
+
+#submit:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #FF8C00, #32CD32);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 5s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+#submit:active {
+    color: white;
+}
+
+#submit:active:after {
+    background: transparent;
+}
+
+#submit:hover:before {
+    opacity: 1;
+}
+
+#submit:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
 </style>

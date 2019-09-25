@@ -9,26 +9,9 @@
 import ApiService from '../services/ApiService.js';
 
 export default {
-  
-  mounted() {
-    ApiService.getItem()
-    .then(item => this.testItem = item);
-  },
   // props: ["selectedItem", "selectedItemDetails"], 
   data() {
     return {
-      itemToChart: this.selectedItemDetails
-    }
-  },
-  watch: {
-    selectedItemDetails: () => {
-      this.itemToChart = this.selectedItemDetails
-    }
-  }, 
-  computed: {
-
-    chartOptions()
-      { return {
       chartOptions: {
         chart: {
           plotBackgroundColor: null,
@@ -71,7 +54,6 @@ export default {
       }
     }
   }
-}
 }
 </script>
 

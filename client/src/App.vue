@@ -160,13 +160,13 @@ a {
 .nutrition-info{
   margin: 1%;
   padding: 1%;
-  width: 40%;
+  width: 50%;
 }
 
-.food-search-info{
+.pie-chart{
   margin: 1% 10%;
   padding: 1%;
-  width: 40%;
+  width: 50%;
 }
 
 .section {
