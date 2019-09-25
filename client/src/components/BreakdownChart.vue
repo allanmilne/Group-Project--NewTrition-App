@@ -1,7 +1,7 @@
 <template>
-    <div class="chart" v-if="selectedItem === !selectedItem">
+    <!-- <div class="chart" v-if="selectedItem === !selectedItem"> -->
       <highcharts id="pie-chart" :options="chartOptions"></highcharts>
-    </div>
+    <!-- </div> -->
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
     ApiService.getItem()
     .then(item => this.testItem = item);
   },
-  props: ["selectedItem"], 
+  // props: ["selectedItem", "selectedItemDetails"], 
   data() {
     return {
       chartOptions: {
@@ -30,7 +30,7 @@ export default {
           text: 'Nutritional Facts'
         },
         subtitle: {
-          text: `${this.food_name} - 1 Serving, ${this.nf_calories} Kcal`
+          text: `Recomended Daily Allowance`
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -50,10 +50,10 @@ export default {
           name: 'Food Breakdown',
           keys: ['name', 'y', 'sliced', 'selected'],
           data: [
-              [`Total Fat ${this.nf_total_fat}g`, this.nf_total_fat],
-              [`Saturated Fat ${this.nf_saturated_fat}g`, this.nf_saturated_fat],
-              [`Sugars ${this.nf_sugars}g`, this.nf_sugars],
-              [`Salt ${this.nf_sodium}mg`, (this.nf_sodium / 1000)]
+              [`Total Fats 40g`, 40],
+              [`Saturated Fat 30g`, 30],
+              [`Sugars 30g`, 30],
+              [`Salt 6g`, 6]
           ]
         }]
       }
