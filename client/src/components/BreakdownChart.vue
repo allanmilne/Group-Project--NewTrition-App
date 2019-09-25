@@ -1,6 +1,11 @@
 <template>
-    <div class="chart" v-if="selectedItem === !selectedItem">
+    <div class="chart">
       <highcharts id="pie-chart" :options="chartOptions"></highcharts>
+      <!-- <p>name: {{selectedItemDetails.food_name}}</p>
+      <p>total fat: {{selectedItemDetails.nf_total_fat}}</p>
+      <p>sat fat: {{selectedItemDetails.nf_saturated_fat}}</p>
+      <p>sugars: {{selectedItemDetails.nf_sugars}}</p>
+      <p>sodium: {{selectedItemDetails.nf_sodium}}</p> -->
     </div>
 </template>
 
@@ -9,14 +14,21 @@
 import ApiService from '../services/ApiService.js';
 
 export default {
-  
-  mounted() {
-    ApiService.getItem()
-    .then(item => this.testItem = item);
-  },
-  props: ["selectedItem"], 
-  data() {
+  props: ['selectedItemDetails'],
+  data(){
     return {
+      itemToChart: this.selectedItemDetails
+    }
+  },
+  watch: {
+    selectedItemDetails: () => {
+      this.itemToChart = this.selectedItemDetails
+    }
+  }, 
+  computed: {
+
+    chartOptions()
+      { return {
       chartOptions: {
         chart: {
           plotBackgroundColor: null,
@@ -30,7 +42,7 @@ export default {
           text: 'Nutritional Facts'
         },
         subtitle: {
-          text: `${this.food_name} - 1 Serving, ${this.nf_calories} Kcal`
+          text: `${itemToChart.food_name} - 1 Serving, ${itemToChart.nf_calories} Kcal`
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -50,14 +62,15 @@ export default {
           name: 'Food Breakdown',
           keys: ['name', 'y', 'sliced', 'selected'],
           data: [
-              [`Total Fat ${this.nf_total_fat}g`, this.nf_total_fat],
-              [`Saturated Fat ${this.nf_saturated_fat}g`, this.nf_saturated_fat],
-              [`Sugars ${this.nf_sugars}g`, this.nf_sugars],
-              [`Salt ${this.nf_sodium}mg`, (this.nf_sodium / 1000)]
-          ]
-        }]
+              [`Total Fat ${itemToChart.nf_total_fat}g`, itemToChart.nf_total_fat],
+              [`Saturated Fat ${itemToChart.nf_saturated_fat}g`, itemToChart.nf_saturated_fat],
+              [`Sugars ${itemToChart.nf_sugars}g`, itemToChart.nf_sugars],
+              [`Salt ${itemToChart.nf_sodium}mg`, (itemToChart.nf_sodium / 1000)]
+            ]
+          }]
+        }
       }
-    };
+    }
   }
 }
 </script>

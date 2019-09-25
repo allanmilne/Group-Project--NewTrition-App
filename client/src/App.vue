@@ -1,9 +1,10 @@
-<template lang="html">
+<template>
   <div id="app">
     <div class="hello">
       <h1 class="heading">Nutrition App</h1>
       <p class="sub-heading">Find out how good your food is!</p>
       <vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false">
+        
 
           <div class="section" id="tab1-nutrition-search">
             <h3 class="title">Nutrition Information</h3>
@@ -54,7 +55,7 @@ export default {
         searchedItem: "",
         searchedItemDetails: null,
         selectedItem: null,
-        selectedItemDetails: null
+        selectedItemDetails: {}
       }
     },
     components: {
@@ -79,8 +80,8 @@ export default {
 
       ApiService.getSpecificItemDetails(item)
       .then(itemDetail => itemDetail.json())
-      .then(data => this.selectedItemDetails = data)
-      .then(() => console.log("details:",this.itemDetail));
+      .then(data => this.selectedItemDetails = data.foods[0])
+      .then(() => console.log("details:", this.itemDetail));
     })
   }
 }
