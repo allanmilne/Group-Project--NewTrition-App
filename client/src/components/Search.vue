@@ -1,7 +1,6 @@
 <template>
-
   <div>
-    <form v-on:submit="handleSubmit">
+    <form id="food-search" v-on:submit="handleSubmit">
       <input type="text" placeholder="search for a food..." v-model="searchedItem">
       <button id="submit">Submit</button>
       <ul v-for="item in itemDetail" :item="item" :key="item.id" >
@@ -9,7 +8,6 @@
       </ul>
     </form>
   </div>
-
 </template>
 
 <script>
@@ -60,7 +58,7 @@ export default {
 
 #submit:before {
     content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #48ff00);
+    background: linear-gradient(45deg, #ff0000, #FF8C00, #32CD32);
     position: absolute;
     top: -2px;
     left:-2px;

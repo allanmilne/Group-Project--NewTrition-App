@@ -8,16 +8,20 @@
           <div class="section" id="tab1-nutrition-search">
             <h3 class="title">Nutrition Information</h3>
 
-            <div class="columns">
-              <div id="nutrition-info">
+            <div class="container">
+
+              <div class="nutrition-info">
                 <nutritional-information/>
               </div>
 
-              <div id="food-search-info">
-                <!-- <h4>[Search form goes here]</h4> -->
+              <div class="food-search-info">
                 <search-form/>
+              </div>
+
+              <div class="pie-chart">
                 <breakdown-chart/>
               </div>
+
             </div>
 
           </div>
@@ -26,14 +30,7 @@
             <h3 class="title">Calorie Calculator</h3>
             <calorie-counter/>
           </div>
-  		<!-- <div class="section" id="tab3-daily-total">
-  			<h3 class="title">Tab 3: Daily Total</h3>
-        <ul>
-          <li>Form for entering food</li>
-          <li>List of food entered for day</li>
-          <li>Graph showing "actual" and "recommended" calories</li>
-        </ul>
-  		</div> -->
+
   	</vue-tiny-tabs>
     </div>
   </div>
@@ -138,8 +135,6 @@ a {
 .tinytabs .tabs .tab {
 	margin: 0 3px 0 0;
 	background: rgba(100, 100, 100, 0.5);
-	/* background: #bacbce; */
-	/* display: block; */
 	padding: 6px 15px;
 	text-decoration: none;
 	color: #333;
@@ -148,7 +143,6 @@ a {
 }
 .tinytabs .section {
 	background: rgba(100, 100, 100, 0.5);
-	/* background: #95afb3; */
 	overflow: hidden;
 	padding: 15px;
 	clear: both;
@@ -156,44 +150,34 @@ a {
 }
 .tinytabs .tab.sel {
 	background: rgba(100, 100, 100, 0.5);
-	/* background: #95afb3; */
 	color: #191919;
 	text-shadow: none;
 }
 
-.columns{
+.container{
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  background-color: white;
+  align-items: center;
+  width: 100%;
 }
 
-#nutrition-info{
-  width: 35%;
-  background-color: white;
-  margin: 1%;
-  padding: 1%;
-  border-radius: 1%;
-  border-style: solid;
-  border-width: 1%;
-  border-color: #5c7973;
+.container > div {
+  /* width: 100%; */
+  /* margin: 5%; */
 }
 
-#food-search-info{
-  width: 55%;
-  background-color: white;
+.nutrition-info{
   margin: 1%;
   padding: 1%;
-  border-radius: 1%;
-  border-style: solid;
-  border-width: 1%;
-  border-color: #5c7973;
+}
+
+.food-search-info{
+  justify-content: center;
 }
 
 .section {
   font-family: 'Nunito', sans-serif;
-}
-
-#empty-space {
-  font-size: 0.8em;
-  color: gray;
 }
 </style>
