@@ -10,15 +10,12 @@
 
             <div class="columns">
               <div id="nutrition-info">
-                <nutritional-information/>
+                <nutritional-information :selected-item-details="selectedItemDetails"/>
               </div>
 
               <div id="food-search-info">
-                <!-- <h4>[Search form goes here]</h4> -->
-                <search-form
-                  :selected-item-details="selectedItemDetails"
-                  :searched-item-details="searchedItemDetails"/>
-                <breakdown-chart/>
+                <search-form :searched-item-details="searchedItemDetails"/>
+                <breakdown-chart :selected-item-details="selectedItemDetails"/>
               </div>
             </div>
 
@@ -82,7 +79,7 @@ export default {
 
       ApiService.getSpecificItemDetails(item)
       .then(itemDetail => itemDetail.json())
-      .then(data => this.itemDetail = data)
+      .then(data => this.selectedItemDetails = data)
       .then(() => console.log("details:",this.itemDetail));
     })
   }
