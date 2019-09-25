@@ -8,17 +8,22 @@
           <div class="section" id="tab1-nutrition-search">
             <h3 class="title">Nutrition Information</h3>
 
-            <div class="columns">
-              <div id="nutrition-info">
+            <div class="container">
+
+              <div class="nutrition-info">
                 <nutritional-information :selected-item-details="selectedItemDetails"/>
               </div>
 
-              <div id="food-search-info">
+              <div class="food-search-info">
+                <search-form :searched-item-details="searchedItemDetails"/>
+              </div>
+
+              <div class="pie-chart">
                 <breakdown-chart :selected-item-details="selectedItemDetails"/>
                 <search-form :searched-item-details="searchedItemDetails"/>
               </div>
-            </div>
 
+            </div>
           </div>
 
           <div class="section" id="tab2-calorie-counter">
@@ -123,7 +128,7 @@ a {
 }
 .tinytabs .tabs .tab {
 	margin: 0 3px 0 0;
-	background: rgba(100, 100, 100, 0.5);
+	background: rgba(100, 100, 100, 0.4);
 	padding: 6px 15px;
 	text-decoration: none;
 	color: #333;
@@ -131,51 +136,39 @@ a {
 	border-radius: 3px 3px 0 0;
 }
 .tinytabs .section {
-	background: rgba(100, 100, 100, 0.5);
+	background: rgba(100, 100, 100, 0.6);
 	overflow: hidden;
 	padding: 15px;
 	clear: both;
 	border-radius: 3px;
 }
 .tinytabs .tab.sel {
-	background: rgba(100, 100, 100, 0.5);
+	background: rgba(100, 100, 100, 0.6);
 	color: #191919;
 	text-shadow: none;
 }
 
-.columns{
+.container{
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: white;
+
 }
 
-#nutrition-info{
-  width: 35%;
-  background-color: white;
+.nutrition-info{
   margin: 1%;
   padding: 1%;
-  border-radius: 1%;
-  border-style: solid;
-  border-width: 1%;
-  border-color: #5c7973;
+  width: 40%;
 }
 
-#food-search-info{
-  width: 55%;
-  background-color: white;
-  margin: 1%;
+.food-search-info{
+  margin: 1% 10%;
   padding: 1%;
-  border-radius: 1%;
-  border-style: solid;
-  border-width: 1%;
-  border-color: #5c7973;
+  width: 40%;
 }
 
 .section {
   font-family: 'Nunito', sans-serif;
-}
-
-#empty-space {
-  font-size: 0.8em;
-  color: gray;
 }
 </style>
