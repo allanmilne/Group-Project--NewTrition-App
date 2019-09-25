@@ -14,8 +14,8 @@
               </div>
 
               <div id="food-search-info">
-                <search-form :searched-item-details="searchedItemDetails"/>
                 <breakdown-chart :selected-item-details="selectedItemDetails"/>
+                <search-form :searched-item-details="searchedItemDetails"/>
               </div>
             </div>
 
@@ -25,14 +25,6 @@
             <h3 class="title">Calorie Calculator</h3>
             <calorie-counter/>
           </div>
-  		<!-- <div class="section" id="tab3-daily-total">
-  			<h3 class="title">Tab 3: Daily Total</h3>
-        <ul>
-          <li>Form for entering food</li>
-          <li>List of food entered for day</li>
-          <li>Graph showing "actual" and "recommended" calories</li>
-        </ul>
-  		</div> -->
   	</vue-tiny-tabs>
     </div>
   </div>
@@ -132,8 +124,6 @@ a {
 .tinytabs .tabs .tab {
 	margin: 0 3px 0 0;
 	background: rgba(100, 100, 100, 0.5);
-	/* background: #bacbce; */
-	/* display: block; */
 	padding: 6px 15px;
 	text-decoration: none;
 	color: #333;
@@ -142,7 +132,6 @@ a {
 }
 .tinytabs .section {
 	background: rgba(100, 100, 100, 0.5);
-	/* background: #95afb3; */
 	overflow: hidden;
 	padding: 15px;
 	clear: both;
@@ -150,7 +139,6 @@ a {
 }
 .tinytabs .tab.sel {
 	background: rgba(100, 100, 100, 0.5);
-	/* background: #95afb3; */
 	color: #191919;
 	text-shadow: none;
 }

@@ -1,9 +1,9 @@
 <template>
     <div id="calorie-counter-form">
-        <h2>Enter your details below to calculate your daily recommended calorie intake: </h2>
+        <h2 class="tbl-heading">Enter your details below to calculate your daily recommended calorie intake: </h2>
       <form id="calorie-form" v-on:submit="handleSubmit">
         <table class="table">
-          <tr>
+          <tr class="row">
             <th for="gender">Gender</th>
             <td>
               <label for="male">Male</label>
@@ -35,13 +35,13 @@
               <input type="number" id="age" v-model.number="age" required />              
             </td>
           </tr>
-
-            <th for="activity-level">Activity Level</th>
+            <div class="acc-lvl-text" for="activity-level">
+              <br>
+              <p>Activity Level</p>
+            </div>
               <div>
                   <slider class="slider"
                   :values="sliderValues"
-                  min="0"
-                  max="100"
                   raising
                   v-model="activityLevel">
                   </slider>
@@ -52,7 +52,7 @@
         </table>
 
         <div class="result">
-          <h1 class="rda">Your recommended calorie intake per day to maintain your current weight is: <span>{{ this.totalCals }}</span></h1>
+          <h2 class="rda">Recommended calorie intake per day: <span>{{ this.totalCals }}</span></h2>
         </div>
       </form>
     </div>
@@ -121,33 +121,54 @@ export default {
 </script>
 
 <style lang="css" scoped>
+table
+.acc-lvl-text {
+  font-weight: bold;
+  text-align: right;
+  color: black;
+}
 
 .slider{
   width: 200px;
-  margin-left: 35%;
+  margin-left: 50%;
+  color: black;
 }
 
 .table{
-  width: 60%;
+  font-size: 150%;
+  border-radius: 1em;
+  background: rgba(100, 100, 100, 0.5);  
+  width: 50%;
+  height: 75%;
   margin: auto;
+  padding: 1em;
   position: relative;
   text-align: center;
-  top: 50%;  
-  background: white;
 }
 
 .calc-btn {
-  position: relative;
+  width: 50%;
+  height: 75%;
+  margin: auto;
+  padding: 1em;
+  position: inherit;
+  text-align: right;
 }
 
 .result {
+  font-size: 200%;
+  position: relative;
+  text-align: center;
+}
+
+.tbl-heading {
   position: relative;
   text-align: center;
 }
 
 span {
   color: white;
-  font-weight: 700;
+  font-weight: 1000;
 }
 .rda {
   font-weight: 700;
