@@ -31,7 +31,8 @@
         ></slider>
         </p>
         <button id="submit">Submit</button>
-        <p>Your recommended calorie intake per day to maintain your current weight is: {{ this.totalCals }}</p>
+        <p class="rda">Your recommended calorie intake per day to maintain your current weight is: <span>{{ this.totalCals }}</span></p>
+        <!-- <p>Your recommended calorie intake per day to maintain your current weight is: {{ this.totalCals }}</p> -->
       </form>
     </div>
 </template>
@@ -100,6 +101,10 @@ export default {
 
 <style lang="css" scoped>
 
+  .slider{
+  width: 300px;
+  margin-left: 35%;
+  }
    .slider{
     width: 300px;
     margin-left: 35%;
@@ -109,4 +114,11 @@ export default {
     text-align: center;
   }
 
+  span {
+    color: white;
+    font-weight: 700;
+  }
+  .rda {
+    font-weight: 700;
+  }
 </style>
