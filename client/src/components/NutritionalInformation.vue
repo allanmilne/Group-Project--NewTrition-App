@@ -35,20 +35,11 @@ export default {
     name: 'nutritional-information',
     data(){
         return {
-          selectedNutrients: [],
           showCalories: false,
           showFats: false,
           showSatFats: false,
           showSugars: false,
           showSalt: false
-        }
-    },
-    methods: {
-        displayInfo: function(selectedNutrient) {
-        this.selectedNutrients.push(selectedNutrient)
-        },
-        getShowForNutrient(nameOfNutrient){
-          return selectedNutrients.includes(nameOfNutrient)
         }
     }
 }

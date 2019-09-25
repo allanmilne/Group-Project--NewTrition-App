@@ -163,6 +163,10 @@ a {
   border-color: #5c7973;
 }
 
+.section {
+  font-family: 'Nunito', sans-serif;
+}
+
 #empty-space {
   font-size: 0.8em;
   color: gray;
