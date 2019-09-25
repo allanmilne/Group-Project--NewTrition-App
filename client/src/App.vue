@@ -124,9 +124,13 @@ a {
 	display: flex;
 	flex-flow: row wrap;
 }
-.tinytabs .tabs .tab .close {
+.tinytabs .tabs .tab {
 	padding-left: 5px;
 }
+.close {
+  color: rgba(0,0,0,0);
+}
+
 .tinytabs .tabs .tab {
 	margin: 0 3px 0 0;
 	background: rgba(100, 100, 100, 0.4);

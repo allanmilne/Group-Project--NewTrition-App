@@ -19,7 +19,7 @@
           </p>
         </div>
         <div id="label3">
-          <p v-on:click="showSatFats = !showSatFats">Saturated fat
+          <p v-on:click="showSatFats = !showSatFats">Saturates
            <p v-if="selectedItemDetails">
               {{selectedItemDetails.nf_saturated_fat}}
             </p>
