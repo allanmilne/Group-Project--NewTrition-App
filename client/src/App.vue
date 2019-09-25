@@ -128,7 +128,7 @@ a {
 }
 .tinytabs .tabs .tab {
 	margin: 0 3px 0 0;
-	background: rgba(100, 100, 100, 0.5);
+	background: rgba(100, 100, 100, 0.4);
 	padding: 6px 15px;
 	text-decoration: none;
 	color: #333;
@@ -136,30 +136,24 @@ a {
 	border-radius: 3px 3px 0 0;
 }
 .tinytabs .section {
-	background: rgba(100, 100, 100, 0.5);
+	background: rgba(100, 100, 100, 0.6);
 	overflow: hidden;
 	padding: 15px;
 	clear: both;
 	border-radius: 3px;
 }
 .tinytabs .tab.sel {
-	background: rgba(100, 100, 100, 0.5);
+	background: rgba(100, 100, 100, 0.6);
 	color: #191919;
 	text-shadow: none;
 }
 
 .container{
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-evenly;
   background-color: white;
-  /* align-items: center; */
-  /* width: 100%; */
-}
 
-.container > div {
-  /* width: 100%; */
-  /* margin: 5%; */
 }
 
 .nutrition-info{
@@ -169,9 +163,9 @@ a {
 }
 
 .food-search-info{
-  /* justify-content: center; */
-  width: 55%;
-  
+  margin: 1% 10%;
+  padding: 1%;
+  width: 40%;
 }
 
 .section {

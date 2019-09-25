@@ -36,12 +36,10 @@
             </td>
           </tr>
 
-            <th for="activity-level">Activity Level</th>
+            <th for="activity-level">Your Activity Level</th>
               <div>
                   <slider class="slider"
                   :values="sliderValues"
-                  min="0"
-                  max="100"
                   raising
                   v-model="activityLevel">
                   </slider>
