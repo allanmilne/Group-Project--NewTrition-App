@@ -3,7 +3,7 @@
     <div class="hello">
       <h1 class="heading">Nutrition App</h1>
       <p class="sub-heading">Find out how good your food is!</p>
-      <vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false" @on-close="onClose" @on-before="onBefore" @on-after="onAfter">
+      <vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false">
 
           <div class="section" id="tab1-nutrition-search">
             <h3 class="title">Nutrition Information</h3>
@@ -52,35 +52,23 @@ import ApiService from './services/ApiService'
 
 export default {
   name: 'app',
-  data() {
-    return {
-      searchedItem: "",
-      searchedItemDetails: null,
-      selectedItem: null,
-      selectedItemDetails: null
-    }
-  },
-  components: {
-    'vue-tiny-tabs': VueTinyTabs,
-    'calorie-counter': CalorieCounter,
-    'breakdown-chart': BreakdownChart,
-    'nutritional-information': NutritionalInformation,
-    'search-form': Search
-  },
-  props: [""],
-  methods: {
-    onClose (id) {
-      console.log('Callback function that gets evaluated while closing the tab', id)
+    data() {
+      return {
+        searchedItem: "",
+        searchedItemDetails: null,
+        selectedItem: null,
+        selectedItemDetails: null
+      }
     },
-    onBefore (id, tab) {
-      console.log('Callback function that gets evaluated before a tab is activated', id, tab)
+    components: {
+      'vue-tiny-tabs': VueTinyTabs,
+      'calorie-counter': CalorieCounter,
+      'breakdown-chart': BreakdownChart,
+      'nutritional-information': NutritionalInformation,
+      'search-form': Search
     },
-    onAfter (id, tab) {
-      console.log('Callback function that gets evaluated after a tab is activated', id, tab)
-    }
-  },
+    props: [""],
     mounted() {
-
     eventBus.$on('searched-item', (item) => {
       this.searchedItem = item;
       

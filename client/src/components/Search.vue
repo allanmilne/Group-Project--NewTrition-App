@@ -38,12 +38,6 @@ export default {
   },
   props: ['itemDetail', 'searchedItemDetails'],
   methods: {
-    // searchForItem() {
-    //   let foundItem = this.item.find((item) => {
-    //     return item.name.toLowerCase().indexOf(this.searchedItem.toLowerCase()) > -1
-    //   })
-    //   this.searchedItem = foundItem
-
     handleSubmit(event) {
       event.preventDefault()
       eventBus.$emit('searched-item', this.searchedItem)
