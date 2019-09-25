@@ -137,7 +137,7 @@ a {
 }
 .tinytabs .tabs .tab {
 	margin: 0 3px 0 0;
-	background: rgba(100, 100, 100, 0.5);
+	background: rgba(100, 100, 100, 0.4);
 	/* background: #bacbce; */
 	/* display: block; */
 	padding: 6px 15px;
@@ -147,7 +147,7 @@ a {
 	border-radius: 3px 3px 0 0;
 }
 .tinytabs .section {
-	background: rgba(100, 100, 100, 0.5);
+	background: rgba(100, 100, 100, 0.6);
 	/* background: #95afb3; */
 	overflow: hidden;
 	padding: 15px;
@@ -155,7 +155,7 @@ a {
 	border-radius: 3px;
 }
 .tinytabs .tab.sel {
-	background: rgba(100, 100, 100, 0.5);
+	background: rgba(100, 100, 100, 0.6k);
 	/* background: #95afb3; */
 	color: #191919;
 	text-shadow: none;

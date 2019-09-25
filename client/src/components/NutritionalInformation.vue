@@ -2,7 +2,7 @@
   <div id="info">
     <h4>Click on each box below for more information... </h4>
       <div id="label">
-        <p v-on:click="showCalories = !showCalories">Cals</p>    
+        <p v-on:click="showCalories = !showCalories">Cals</p>
         <p v-on:click="showFats = !showFats">Fats</p>
         <p v-on:click="showSatFats = !showSatFats">Sat fat</p>
         <p v-on:click="showSugars = !showSugars">Sugars</p>
@@ -58,7 +58,7 @@ export default {
     #info{
       display: flexbox;
     }
-    
+
     #label p{
         border: 1px solid white;
         border-radius: 15px;
@@ -88,7 +88,7 @@ export default {
         transform: scale(0);
       }
       50% {
-        transform: scale(1.5);
+        transform: scale(1.2);
       }
       100% {
         transform: scale(1);
