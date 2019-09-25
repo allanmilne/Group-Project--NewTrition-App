@@ -66,8 +66,8 @@ table, th, td {
 th, td {
   border-bottom: 1px solid grey;
   padding: 10px;
-  text-align: center;
-<style>
+  text-align: center;} 
+  
 #submit {
     width: 120px;
     height: 50px;
