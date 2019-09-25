@@ -84,7 +84,7 @@ export default {
         handleSubmit(event) {
             event.preventDefault()
             this.calsPerDay()
-            {document.getElementById("calorie-form").reset()}
+            event.target.reset()
         },
         calsPerDay() {
             let result = 0;
