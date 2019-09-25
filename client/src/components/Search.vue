@@ -2,7 +2,7 @@
   <div>
     <form id="food-search" v-on:submit="handleSubmit">
       <input type="text" placeholder="search for a food..." v-model="searchedItem">
-      <button id="submit">Submit</button>
+      <button id="submit">Search</button>
     </form>
       <table v-if="searchedItemDetails">
         <thead>
@@ -66,7 +66,7 @@ th, td {
   text-align: center;} 
   
 #submit {
-    width: 120px;
+    width: 100px;
     height: 50px;
     border: none;
     outline: none;
@@ -127,5 +127,8 @@ th, td {
 
 input {
   margin-right: 20px;
+  width: 60%;
+  height: 30px;
+  border-radius: 15px;
 }
 </style>

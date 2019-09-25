@@ -1,12 +1,7 @@
 <template>
-    <div class="chart">
+    <!-- <div class="chart" v-if="selectedItem === !selectedItem"> -->
       <highcharts id="pie-chart" :options="chartOptions"></highcharts>
-      <!-- <p>name: {{selectedItemDetails.food_name}}</p>
-      <p>total fat: {{selectedItemDetails.nf_total_fat}}</p>
-      <p>sat fat: {{selectedItemDetails.nf_saturated_fat}}</p>
-      <p>sugars: {{selectedItemDetails.nf_sugars}}</p>
-      <p>sodium: {{selectedItemDetails.nf_sodium}}</p> -->
-    </div>
+    <!-- </div> -->
 </template>
 
 <script>
@@ -14,8 +9,13 @@
 import ApiService from '../services/ApiService.js';
 
 export default {
-  props: ['selectedItemDetails'],
-  data(){
+  
+  mounted() {
+    ApiService.getItem()
+    .then(item => this.testItem = item);
+  },
+  // props: ["selectedItem", "selectedItemDetails"], 
+  data() {
     return {
       itemToChart: this.selectedItemDetails
     }
@@ -42,7 +42,7 @@ export default {
           text: 'Nutritional Facts'
         },
         subtitle: {
-          text: `${itemToChart.food_name} - 1 Serving, ${itemToChart.nf_calories} Kcal`
+          text: `Recomended Daily Allowance`
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -62,13 +62,12 @@ export default {
           name: 'Food Breakdown',
           keys: ['name', 'y', 'sliced', 'selected'],
           data: [
-              [`Total Fat ${itemToChart.nf_total_fat}g`, itemToChart.nf_total_fat],
-              [`Saturated Fat ${itemToChart.nf_saturated_fat}g`, itemToChart.nf_saturated_fat],
-              [`Sugars ${itemToChart.nf_sugars}g`, itemToChart.nf_sugars],
-              [`Salt ${itemToChart.nf_sodium}mg`, (itemToChart.nf_sodium / 1000)]
-            ]
-          }]
-        }
+              [`Total Fats 40g`, 40],
+              [`Saturated Fat 30g`, 30],
+              [`Sugars 30g`, 30],
+              [`Salt 6g`, 6]
+          ]
+        }]
       }
     }
   }

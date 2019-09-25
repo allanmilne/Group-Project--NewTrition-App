@@ -1,42 +1,44 @@
 <template>
     <div id="calorie-counter-form">
-        <h2>Enter your details below to calculate your daily recommended calorie intake: </h2>
+        <h2 class="tbl-heading">Enter your details below to calculate your daily recommended calorie intake: </h2>
       <form id="calorie-form" v-on:submit="handleSubmit">
         <table class="table">
-          <tr>
-            <th for="gender">Gender</th>
+          <tr class="row">
+            <th for="sex">Sex: </th>
             <td>
               <label for="male">Male</label>
-              <input type="radio" id="male" name="gender" value="male" v-model="gender" checked="checked">
+              <input type="radio" id="male" name="sex" value="male" v-model="sex" checked="checked">
             </td>
             <td>
               <label for="female">Female</label>
-              <input type="radio" id="female" name="gender" value="female" v-model="gender">
+              <input type="radio" id="female" name="sex" value="female" v-model="sex">
             </td>
           </tr>
 
           <tr>
-            <th for="weight">Weight</th>
+            <th for="weight">Weight: </th>
             <td>
               <input type="number" id="weight" placeholder="weight in kgs" v-model.number="weight" required />
             </td>
           </tr>
 
           <tr>
-            <th for="height">Height</th>
+            <th for="height">Height: </th>
             <td>
               <input type="number" id="height" placeholder="cms" v-model.number="height" required />
             </td>
           </tr>
 
           <tr>
-            <th for="age">Age</th>
+            <th for="age">Age: </th>
             <td>
               <input type="number" id="age" v-model.number="age" required />              
             </td>
           </tr>
-
-            <th for="activity-level">Your Activity Level</th>
+            <div class="acc-lvl-text" for="activity-level">
+              <br>
+              <p>Activity Level: </p>
+            </div>
               <div>
                   <slider class="slider"
                   :values="sliderValues"
@@ -50,7 +52,7 @@
         </table>
 
         <div class="result">
-          <h1 class="rda">Your recommended calorie intake per day to maintain your current weight is: <span>{{ this.totalCals }}</span></h1>
+          <h2 class="rda">Recommended calorie intake per day: <span>{{ this.totalCals }}</span></h2>
         </div>
       </form>
     </div>
@@ -68,7 +70,7 @@ export default {
     data() {
       return {
         testItem: null,
-        "gender": "",
+        "sex": "",
         "weight": null,
         "height": null,
         "activityLevel": null,
@@ -107,9 +109,9 @@ export default {
         },
         calsPerDay() {
             let result = 0;
-            if (this.gender === "male") {
+            if (this.sex === "male") {
               result = (88.362 + (13.39 * this.weight) + (4.799 * this.height) - (5.677 * this.age)) * this.activityLevel;
-            } else if (this.gender === "female") {
+            } else if (this.sex === "female") {
               result = (447.593 + (9.247 * this.weight) + (3.098 * this.height) - (4.330 * this.age)) * this.activityLevel;
             }
             this.totalCals = parseInt(result)
@@ -119,33 +121,54 @@ export default {
 </script>
 
 <style lang="css" scoped>
+table
+.acc-lvl-text {
+  font-weight: bold;
+  text-align: right;
+  color: black;
+}
 
 .slider{
   width: 200px;
-  margin-left: 35%;
+  margin-left: 50%;
+  color: black;
 }
 
 .table{
-  width: 60%;
+  font-size: 150%;
+  border-radius: 1em;
+  background: rgba(100, 100, 100, 0.5);  
+  width: 50%;
+  height: 75%;
   margin: auto;
+  padding: 1em;
   position: relative;
   text-align: center;
-  top: 50%;  
-  background: white;
 }
 
 .calc-btn {
-  position: relative;
+  width: 50%;
+  height: 75%;
+  margin: auto;
+  padding: 1em;
+  position: inherit;
+  text-align: right;
 }
 
 .result {
+  font-size: 200%;
+  position: relative;
+  text-align: center;
+}
+
+.tbl-heading {
   position: relative;
   text-align: center;
 }
 
 span {
   color: white;
-  font-weight: 700;
+  font-weight: 1000;
 }
 .rda {
   font-weight: 700;

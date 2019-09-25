@@ -21,6 +21,7 @@
 
               <div class="pie-chart">
                 <breakdown-chart :selected-item-details="selectedItemDetails"/>
+                <search-form :searched-item-details="searchedItemDetails"/>
               </div>
 
             </div>
@@ -30,7 +31,6 @@
             <h3 class="title">Calorie Calculator</h3>
             <calorie-counter/>
           </div>
-
   	</vue-tiny-tabs>
     </div>
   </div>
