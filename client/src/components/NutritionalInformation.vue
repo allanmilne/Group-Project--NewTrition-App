@@ -113,7 +113,7 @@ export default {
   border: 1px solid black;
   border-radius: 15px;
   height: 90px;
-  background-color: #32CD32;
+  background-color: orange;
   display: inline-block;
   padding: 4px 10px;
   text-align: center;
@@ -123,7 +123,7 @@ export default {
   border: 1px solid black;
   border-radius: 15px;
   height: 90px;
-  background-color: #32CD32;
+  background-color: orangered;
   display: inline-block;
   padding: 4px 10px;
   text-align: center;
