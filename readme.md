@@ -1,6 +1,8 @@
 # NewTrition
 
-### An educational app created to help educate people of all ages on nutrition and to discover the key nutrient levels contained within their food using the Nutritionix Api (https://www.nutritionix.com/business/api).
+### An educational app created to help educate people of all ages on nutrition and to discover the key nutrient levels contained within their food using the Nutritionix Api (https://www.nutritionix.com/business/api), Vue, JavaScript, Express and  Highcharts.
+
+![](images/Screenshot1.png)
 
 ## Our Brief
 
@@ -51,6 +53,14 @@ To run the client, run the script below in your terminal whilst in the client di
 
 ## How it works and what it does:
 
-- Within the nutrition information tab of the app you can see your recommended daily amount of nutrients breakdown within the pie chart. Underneath this you can search for any type of food using the search bar. When you have found the food you are looking for you can select it using the button to the right. The quantities of nutrients within your selected food will appear within the nutrient tabs to the left. You can also click on the name of each nutrient within the tab to find a little more information on each nutrient. If you click on the name again the information will disappear. These tabs are designed to look similar to the nutrition labels that are found on food packaging. The aim is to help people understand what the labels mean and how it relates to their daily intake.
+- Within the nutrition information tab of the app you can see your recommended daily amount of nutrients breakdown within the pie chart. Underneath this you can search for any type of food using the search bar. 
+
+![](images/Screenshot2.png)
+
+- When you have found the food you are looking for you can select it using the button to the right. The quantities of nutrients within your selected food will appear within the nutrient tabs to the left. You can also click on the name of each nutrient within the tab to find a little more information on each nutrient. If you click on the name again the information will disappear. These tabs are designed to look similar to the nutrition labels that are found on food packaging. The aim is to help people understand what the labels mean and how it relates to their daily intake.
+
+![](images/Screenshot3.png)
 
 - Within the calorie calculator tab you can input your details to receieve the recommended daily amount of calories you should consume in order to maintain your current weight. The aim is to assist the user in understanding how many calories they should be consuming, which will hopefully help and inform food choices.
+
+![](images/Screenshot4.png)
