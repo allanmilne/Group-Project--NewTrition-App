@@ -7,7 +7,7 @@
             <th for="sex">Sex: </th>
             <td>
               <label for="male">Male</label>
-              <input type="radio" id="male" name="sex" value="male" v-model="sex" checked="checked">
+              <input type="radio" id="male" name="sex" value="male" v-model="sex">
             </td>
             <td>
               <label for="female">Female</label>
@@ -71,7 +71,6 @@ export default {
     },
     data() {
       return {
-        testItem: null,
         "sex": "",
         "weight": null,
         "height": null,
@@ -108,6 +107,10 @@ export default {
             event.preventDefault()
             this.calsPerDay()
             event.target.reset()
+            this.height = null
+            this.weight = null
+            this.age = null
+            this.sex = ""
         },
         calsPerDay() {
             let result = 0;

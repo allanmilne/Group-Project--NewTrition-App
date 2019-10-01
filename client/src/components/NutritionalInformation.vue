@@ -1,15 +1,17 @@
-<template lang="html">
+<template>
   <div id="info">
     <div id="traffic-lights">
       <h4>Click on each box below for more information... </h4>
 
       <div id="lights">
         <div id="label1">
+          
           <p v-on:click="showCalories = !showCalories">Calories
             <p v-if="selectedItemDetails">
               {{selectedItemDetails.nf_calories}}
             </p>
-          </p>   
+          </p>
+
         </div>
         <div id="label2"> 
           <p v-on:click="showFats = !showFats">Fats

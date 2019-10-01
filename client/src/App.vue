@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="hello">
-      <h1 class="heading">Nutrition App</h1>
+      <h1 class="heading">NewTrition</h1>
       <p class="sub-heading">Find out how good your food is!</p>
       <vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false">
         
